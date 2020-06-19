@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-   ${APP_NAME}_db:
+   db:
      image: mysql:5.7
      volumes:
        - db_data:/var/lib/mysql
@@ -12,7 +12,7 @@ services:
        MYSQL_USER: wordpress
        MYSQL_PASSWORD: wordpress
 
-   ${APP_NAME}_wordpress:
+   wordpress:
      image: wordpress:latest
      ports:
        - 80
@@ -23,4 +23,4 @@ services:
        WORDPRESS_DB_PASSWORD: wordpress
 
 volumes:
-    ${APP_NAME}_db_data:
+  db_data:
