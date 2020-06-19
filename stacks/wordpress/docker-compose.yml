@@ -4,7 +4,7 @@ services:
    db:
      image: mysql:5.7
      volumes:
-       - ${APP_NAME}_db_data:/var/lib/mysql
+       - db_data:/var/lib/mysql
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: ${MYSQL_DATABASE_PASSWORD}
@@ -22,13 +22,13 @@ services:
        WORDPRESS_DB_USER: wordpress
        WORDPRESS_DB_PASSWORD: wordpress
      volumes:
-       - ${APP_NAME}_wp_data:/var/www/html/wp-content
+       - wp_data:/var/www/html/wp-content
      networks:
        - traefik-net
 
 volumes:
-  ${APP_NAME}_db_data:
-  ${APP_NAME}_wp_data:
+  db_data:
+  wp_data:
   
 networks:
   traefik-net:
