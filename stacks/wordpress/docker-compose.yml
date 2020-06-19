@@ -11,6 +11,8 @@ services:
        MYSQL_DATABASE: wordpress
        MYSQL_USER: wordpress
        MYSQL_PASSWORD: wordpress
+     networks:
+       - mynet
 
    wordpress:
      image: wordpress:latest
@@ -34,6 +36,7 @@ services:
   
      networks:
        - traefik-net
+       - mynet
 
 volumes:
   db_data:
@@ -42,3 +45,4 @@ volumes:
 networks:
   traefik-net:
     external: true
+  mynet:
